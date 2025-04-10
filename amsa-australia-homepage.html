@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMSA Australia - Asian Medical Students' Association</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar .logo img {
+            height: 50px;
+        }
+        
+        .navbar .logo .logo-text {
+            margin-left: 15px;
+        }
+        
+        .navbar .logo .logo-text h1 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #0077b6;
+        }
+        
+        .navbar .logo .logo-text p {
+            font-size: 12px;
+            color: #555;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #0077b6;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 51, 102, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .hero-logo {
+            width: 180px;
+            margin-bottom: 30px;
+        }
+        
+        .hero-title {
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .hero-subtitle {
+            font-size: 24px;
+            color: white;
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .hero-btn {
+            padding: 12px 30px;
+            border: 2px solid white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .primary-btn {
+            background-color: white;
+            color: #0077b6;
+        }
+        
+        .primary-btn:hover {
+            background-color: #0077b6;
+            color: white;
+        }
+        
+        .secondary-btn {
+            background-color: transparent;
+            color: white;
+        }
+        
+        .secondary-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Core Values Section */
+        .core-values {
+            padding: 100px 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            color: #0077b6;
+            margin-bottom: 50px;
+        }
+        
+        .values-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .value-item {
+            flex: 1;
+            min-width: 300px;
+            padding: 30px;
+        }
+        
+        .value-item h3 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .value-item p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #003366;
+            color: white;
+            padding: 50px 20px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-logo {
+            margin-bottom: 20px;
+            width: 120px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+        
+        .footer-section a {
+            display: block;
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .navbar {
+                padding: 20px 30px;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 90px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 90px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                gap: 30px;
+                transition: left 0.5s;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin-left: 0;
+            }
+            
+            .hamburger {
+                display: block;
+                font-size: 30px;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-section {
+                margin-bottom: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="/api/placeholder/50/50" alt="AMSA Australia Logo">
+            <div class="logo-text">
+                <h1>AMSA Australia</h1>
+                <p>Asian Medical Students' Association</p>
+            </div>
+        </div>
+        
+        <ul class="nav-links">
+            <li><a href="amsa-australia-homepage.html">Home</a></li>
+            <li><a href="amsa-australia-about.html">About</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">International</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Join Us</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        
+        <div class="hamburger">☰</div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay">
+            <img class="hero-logo" src="/api/placeholder/180/180" alt="AMSA Australia Logo">
+            <h1 class="hero-title">AMSA Australia</h1>
+            <p class="hero-subtitle">Connecting Australian Medical Students with the world</p>
+            <div class="hero-buttons">
+                <a href="#" class="hero-btn primary-btn">Begin →</a>
+                <a href="#" class="hero-btn secondary-btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Core Values Section -->
+    <section class="core-values">
+        <h2 class="section-title">Our Vision</h2>
+        <div class="values-container">
+            <div class="value-item">
+                <h3>Knowledge</h3>
+                <p>We strive to share medical knowledge and experiences among students across the Asia-Pacific region and beyond.</p>
+            </div>
+            <div class="value-item">
+                <h3>Connection</h3>
+                <p>We connect Australian medical students with international medical communities, fostering cultural exchange and global perspectives.</p>
+            </div>
+            <div class="value-item">
+                <h3>Leadership</h3>
+                <p>We develop future healthcare leaders through international engagement, projects, and conferences.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img class="footer-logo" src="/api/placeholder/120/120" alt="AMSA Australia Logo">
+                <p>A student-led, not-for-profit, non-political organisation connecting Australian medical students with the world.</p>
+                <div class="social-links">
+                    <a href="#"><span>FB</span></a>
+                    <a href="#"><span>IG</span></a>
+                    <a href="#"><span>TW</span></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#">About Us</a>
+                <a href="#">Our Projects</a>
+                <a href="#">International Opportunities</a>
+                <a href="#">AMSEP Program</a>
+                <a href="#">Join AMSA Australia</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: rcaustralia@amsa-international.org</p>
+                <p>Instagram: @amsaintaus</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2025 AMSA Australia. All rights reserved.
+        </div>
+    </footer>
+    
+    <script>
+        // Simple JavaScript for the mobile menu toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - AMSA Australia</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* This would typically go in your main style.css file */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            overflow-x: hidden;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar .logo img {
+            height: 50px;
+        }
+        
+        .navbar .logo .logo-text {
+            margin-left: 15px;
+        }
+        
+        .navbar .logo .logo-text h1 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #0077b6;
+        }
+        
+        .navbar .logo .logo-text p {
+            font-size: 12px;
+            color: #555;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #0077b6;
+        }
+        
+        .nav-links a.active {
+            color: #0077b6;
+            font-weight: 700;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background-color: #0077b6;
+            color: white;
+            padding: 120px 20px 60px;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .page-header p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* About Content */
+        .about-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-text h2 {
+            font-size: 28px;
+            color: #0077b6;
+            margin-bottom: 25px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Mission & Vision */
+        .mission-vision {
+            background-color: #f8f9fa;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .mission-vision-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .mission-vision h2 {
+            font-size: 32px;
+            color: #0077b6;
+            margin-bottom: 50px;
+        }
+        
+        .values-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .value-item {
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            background-color: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .value-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .value-item h3 {
+            font-size: 22px;
+            color: #0077b6;
+            margin-bottom: 20px;
+        }
+        
+        .value-item p {
+            font-size: 16px;
+            color: #555;
+        }
+        
+        /* Team Section */
+        .team-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .team-section h2 {
+            font-size: 32px;
+            color: #0077b6;
+            margin-bottom: 50px;
+        }
+        
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .team-member {
+            width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .team-member img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid rgba(0, 119, 182, 0.2);
+        }
+        
+        .team-member h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .team-member p {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #003366;
+            color: white;
+            padding: 50px 20px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo {
+            margin-bottom: 20px;
+            width: 120px;
+        }
+        
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+        
+        .footer-section a {
+            display: block;
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .navbar {
+                padding: 15px 30px;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                gap: 30px;
+                transition: left 0.5s;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin-left: 0;
+            }
+            
+            .hamburger {
+                display: block;
+                font-size: 30px;
+            }
+            
+            .page-header {
+                padding: 100px 20px 50px;
+            }
+            
+            .page-header h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="/api/placeholder/50/50" alt="AMSA Australia Logo">
+            <div class="logo-text">
+                <h1>AMSA Australia</h1>
+                <p>Asian Medical Students' Association</p>
+            </div>
+        </div>
+        
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="international.html">International</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="join.html">Join Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        
+        <div class="hamburger">☰</div>
+    </nav>
+    
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>About AMSA Australia</h1>
+        <p>We are a student-led, not-for-profit, non-political organisation connecting Australian medical students with the world.</p>
+    </header>
+    
+    <!-- About Content -->
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-text">
+                <h2>Who We Are</h2>
+                <p>Asian Medical Students' Association (AMSA) Australia Chapter is part of AMSA International, a peak representative organisation for medical students from across Asia, the Asia-Pacific, and beyond.</p>
+                
+                <p>AMSA trains future doctors-to-be to share knowledge, undertake inter-cultural activities and social services, and create international friendships. As the Australian Chapter, we serve as the bridge connecting Australian medical students with their peers across Asia and beyond.</p>
+                
+                <p>Established as a platform for cultural exchange and professional development, we offer Australian medical students unique opportunities to engage with the international medical community through exchanges, conferences, and collaborative projects.</p>
+            </div>
+            
+            <div class="about-image">
+                <img src="/api/placeholder/600/400" alt="AMSA Australia Members">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Mission & Vision Section -->
+    <section class="mission-vision">
+        <div class="mission-vision-container">
+            <h2>Our Mission & Values</h2>
+            
+            <div class="values-container">
+                <div class="value-item">
+                    <h3>Knowledge Sharing</h3>
+                    <p>We facilitate the exchange of medical knowledge and innovations across borders, enhancing the educational experience of future healthcare professionals.</p>
+                </div>
+                
+                <div class="value-item">
+                    <h3>Cultural Exchange</h3>
+                    <p>We promote understanding of different healthcare systems and practices through immersive experiences and collaborative learning.</p>
+                </div>
+                
+                <div class="value-item">
+                    <h3>Global Leadership</h3>
+                    <p>We develop leadership skills in medical students, preparing them to address healthcare challenges with a global perspective.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Team Section (optional) -->
+    <section class="team-section">
+        <h2>Our Team</h2>
+        
+        <div class="team-container">
+            <div class="team-member">
+                <img src="/api/placeholder/180/180" alt="Team Member 1">
+                <h3>Team Member</h3>
+                <p>President</p>
+            </div>
+            
+            <div class="team-member">
+                <img src="/api/placeholder/180/180" alt="Team Member 2">
+                <h3>Team Member</h3>
+                <p>Vice President</p>
+            </div>
+            
+            <div class="team-member">
+                <img src="/api/placeholder/180/180" alt="Team Member 3">
+                <h3>Team Member</h3>
+                <p>Secretary</p>
+            </div>
+            
+            <div class="team-member">
+                <img src="/api/placeholder/180/180" alt="Team Member 4">
+                <h3>Team Member</h3>
+                <p>Treasurer</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img class="footer-logo" src="/api/placeholder/120/120" alt="AMSA Australia Logo">
+                <p>Connecting Australian Medical Students with the world. A student-led, not-for-profit, non-political organisation.</p>
+                <div class="social-links">
+                    <a href="#"><span>FB</span></a>
+                    <a href="#"><span>IG</span></a>
+                    <a href="#"><span>TW</span></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="projects.html">Our Projects</a>
+                <a href="international.html">International Opportunities</a>
+                <a href="join.html">Join AMSA Australia</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: rcaustralia@amsa-international.org</p>
+                <p>Instagram: @amsaintaus</p>
+                <p>Website: amsa-australia.com</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2025 AMSA Australia. All rights reserved.
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
