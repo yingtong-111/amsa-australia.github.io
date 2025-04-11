@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMSA Australia - Navigation Menu</title>
+    <title>AMSA Australia - Asian Medical Students' Association</title>
     <style>
         * {
             margin: 0;
@@ -14,7 +14,6 @@
         
         body {
             overflow-x: hidden;
-            padding-top: 90px; /* Space for fixed navbar */
         }
         
         /* Navigation Bar */
@@ -23,11 +22,11 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(255, 255, 255, 0.9);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 50px;
+            padding: 20px 50px;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
@@ -56,14 +55,12 @@
             color: #555;
         }
         
-        /* Main nav items */
         .nav-links {
             display: flex;
             list-style: none;
         }
         
         .nav-links li {
-            position: relative;
             margin-left: 30px;
         }
         
@@ -73,124 +70,241 @@
             font-weight: 500;
             font-size: 16px;
             transition: color 0.3s;
-            display: block;
-            padding: 5px 0;
         }
         
         .nav-links a:hover {
             color: #0077b6;
         }
         
-        .nav-links a.active {
-            color: #0077b6;
-            font-weight: 700;
-        }
-        
-        /* Dropdown menus */
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: white;
-            min-width: 220px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
-            z-index: 1001;
-            border-radius: 5px;
-        }
-        
-        .dropdown-item {
-            padding: 12px 20px;
-            display: block;
-            color: #333;
-            font-size: 15px;
-            text-decoration: none;
-            transition: background-color 0.3s;
-            position: relative;
-        }
-        
-        .dropdown-item:hover {
-            background-color: #f5f5f5;
-            color: #0077b6;
-        }
-        
-        /* Show dropdown on hover */
-        .nav-links li:hover > .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        
-        /* Nested dropdown (third level) */
-        .nested-dropdown {
-            position: relative;
-        }
-        
-        .nested-dropdown::after {
-            content: '›';
-            position: absolute;
-            right: 15px;
-            top: 12px;
-            font-size: 18px;
-        }
-        
-        .nested-dropdown-menu {
-            position: absolute;
-            top: 0;
-            left: 100%;
-            background-color: white;
-            min-width: 220px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateX(10px);
-            transition: all 0.3s ease;
-            border-radius: 5px;
-        }
-        
-        .nested-dropdown:hover .nested-dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(0);
-        }
-        
-        /* Hamburger menu for mobile */
         .hamburger {
             display: none;
             cursor: pointer;
-            font-size: 30px;
         }
         
-        /* Mobile menu toggle */
-        .menu-toggle {
-            display: none;
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 51, 102, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .hero-logo {
+            width: 180px;
+            margin-bottom: 30px;
+        }
+        
+        .hero-title {
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .hero-subtitle {
+            font-size: 24px;
+            color: white;
+            max-width: 800px;
+            margin-bottom: 40px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .hero-btn {
+            padding: 12px 30px;
+            border: 2px solid white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .primary-btn {
+            background-color: white;
+            color: #0077b6;
+        }
+        
+        .primary-btn:hover {
+            background-color: #0077b6;
+            color: white;
+        }
+        
+        .secondary-btn {
+            background-color: transparent;
+            color: white;
+        }
+        
+        .secondary-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Core Values Section */
+        .core-values {
+            padding: 100px 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            color: #0077b6;
+            margin-bottom: 50px;
+        }
+        
+        .values-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .value-item {
+            flex: 1;
+            min-width: 300px;
+            padding: 30px;
+        }
+        
+        .value-item h3 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .value-item p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #003366;
+            color: white;
+            padding: 50px 20px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-logo {
+            margin-bottom: 20px;
+            width: 120px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+        
+        .footer-section a {
+            display: block;
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: #aaa;
         }
         
         /* Responsive Design */
         @media (max-width: 992px) {
             .navbar {
-                padding: 15px 20px;
-            }
-            
-            .hamburger {
-                display: block;
+                padding: 20px 30px;
             }
             
             .nav-links {
                 position: fixed;
-                top: 80px;
+                top: 90px;
                 left: -100%;
                 width: 100%;
-                height: calc(100vh - 80px);
+                height: calc(100vh - 90px);
                 background-color: white;
                 flex-direction: column;
-                align-items: flex-start;
-                padding: 20px;
-                overflow-y: auto;
-                transition: left 0.3s ease;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                gap: 30px;
+                transition: left 0.5s;
             }
             
             .nav-links.active {
@@ -198,82 +312,34 @@
             }
             
             .nav-links li {
-                margin: 0;
-                width: 100%;
-                border-bottom: 1px solid #eee;
+                margin-left: 0;
             }
             
-            .nav-links a {
-                padding: 15px 0;
-                font-size: 16px;
+            .hamburger {
+                display: block;
+                font-size: 30px;
             }
             
-            /* Mobile dropdown handling */
-            .dropdown-menu {
-                position: static;
-                background-color: #f9f9f9;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                box-shadow: none;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
-                width: 100%;
-                border-radius: 0;
+            .hero-title {
+                font-size: 36px;
             }
             
-            .dropdown-toggle {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-            
-            .dropdown-toggle::after {
-                content: "+";
+            .hero-subtitle {
                 font-size: 20px;
-                transition: transform 0.3s;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-buttons {
+                flex-direction: column;
             }
             
-            .dropdown-toggle.active::after {
-                transform: rotate(45deg);
+            .footer-content {
+                flex-direction: column;
             }
             
-            .nested-dropdown::after {
-                content: "+";
-                top: 15px;
-            }
-            
-            .nested-dropdown-menu {
-                position: static;
-                background-color: #f0f0f0;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                box-shadow: none;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
-                width: 100%;
-                border-radius: 0;
-            }
-            
-            /* Show mobile dropdown when active */
-            .dropdown-menu.show {
-                max-height: 1000px;
-            }
-            
-            .nested-dropdown-menu.show {
-                max-height: 1000px;
-            }
-            
-            .dropdown-item {
-                padding: 12px 15px;
-            }
-            
-            /* Nested items need more indent */
-            .nested-dropdown-menu .dropdown-item {
-                padding-left: 30px;
+            .footer-section {
+                margin-bottom: 40px;
             }
         }
     </style>
@@ -290,111 +356,96 @@
         </div>
         
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            
-            <li class="has-dropdown">
-                <a href="about.html" class="dropdown-toggle">About Us</a>
-                <div class="dropdown-menu">
-                    <a href="about.html" class="dropdown-item">Who We Are</a>
-                    <a href="mission.html" class="dropdown-item">Mission & Vision</a>
-                    <a href="team.html" class="dropdown-item">Our Team</a>
-                </div>
-            </li>
-            
-            <li class="has-dropdown">
-                <a href="departments.html" class="dropdown-toggle">Departments</a>
-                <div class="dropdown-menu">
-                    <a href="academics.html" class="dropdown-item">Academics</a>
-                    <a href="amsep.html" class="dropdown-item">AMSEP Program</a>
-                    <a href="global-health.html" class="dropdown-item">Public & Global Health</a>
-                </div>
-            </li>
-            
-            <li class="has-dropdown">
-                <a href="events.html" class="dropdown-toggle">Events</a>
-                <div class="dropdown-menu">
-                    <a href="upcoming-events.html" class="dropdown-item">Upcoming Events</a>
-                    <div class="nested-dropdown">
-                        <a href="past-events.html" class="dropdown-item">Past Events</a>
-                        <div class="nested-dropdown-menu">
-                            <a href="events/australia-singapore-2024.html" class="dropdown-item">2024 AMSEP Australia x Singapore</a>
-                            <a href="events/australia-singapore-hongkong-2024.html" class="dropdown-item">2024 Australia x Singapore x Hong Kong AMSEP</a>
-                            <a href="events/australia-thailand-2023.html" class="dropdown-item">2023 Australia x Thailand AMSEP</a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            
-            <li class="has-dropdown">
-                <a href="contact.html" class="dropdown-toggle">Contact Us</a>
-                <div class="dropdown-menu">
-                    <a href="https://facebook.com/amsa.australia" target="_blank" class="dropdown-item">Facebook</a>
-                    <a href="https://instagram.com/amsaintaus" target="_blank" class="dropdown-item">Instagram</a>
-                    <a href="https://linkedin.com/company/amsa-australia" target="_blank" class="dropdown-item">LinkedIn</a>
-                    <a href="mailto:rcaustralia@amsa-international.org" class="dropdown-item">Email</a>
-                </div>
-            </li>
+            <li><a href="amsa-australia-homepage.html">Home</a></li>
+            <li><a href="amsa-australia-about.html">About</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">International</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Join Us</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
         
         <div class="hamburger">☰</div>
     </nav>
     
-    <!-- Page content would go here -->
-    <div style="padding: 30px;">
-        <h1>AMSA Australia</h1>
-        <p>This page demonstrates the navigation menu structure. The actual content for each page would be added here.</p>
-    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay">
+            <img class="hero-logo" src="Image/Logo.png" alt="AMSA Australia Logo">
+            <h1 class="hero-title">AMSA Australia</h1>
+            <p class="hero-subtitle">Connecting Australian Medical Students with the world</p>
+            <div class="hero-buttons">
+                <a href="#" class="hero-btn primary-btn">Begin →</a>
+                <a href="#" class="hero-btn secondary-btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Core Values Section -->
+    <section class="core-values">
+        <h2 class="section-title">Our Vision</h2>
+        <div class="values-container">
+            <div class="value-item">
+                <h3>Knowledge</h3>
+                <p>We strive to share medical knowledge and experiences among students across the Asia-Pacific region and beyond.</p>
+            </div>
+            <div class="value-item">
+                <h3>Connection</h3>
+                <p>We connect Australian medical students with international medical communities, fostering cultural exchange and global perspectives.</p>
+            </div>
+            <div class="value-item">
+                <h3>Leadership</h3>
+                <p>We develop future healthcare leaders through international engagement, projects, and conferences.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img class="footer-logo" src="/api/placeholder/120/120" alt="AMSA Australia Logo">
+                <p>A student-led, not-for-profit, non-political organisation connecting Australian medical students with the world.</p>
+                <div class="social-links">
+                    <a href="#"><span>FB</span></a>
+                    <a href="#"><span>IG</span></a>
+                    <a href="#"><span>TW</span></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#">About Us</a>
+                <a href="#">Our Projects</a>
+                <a href="#">International Opportunities</a>
+                <a href="#">AMSEP Program</a>
+                <a href="#">Join AMSA Australia</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: rcaustralia@amsa-international.org</p>
+                <p>Instagram: @amsaintaus</p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            &copy; 2025 AMSA Australia. All rights reserved.
+        </div>
+    </footer>
     
     <script>
-        // Mobile menu toggle
+        // Simple JavaScript for the mobile menu toggle
         document.querySelector('.hamburger').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
         });
         
-        // Handle dropdowns on mobile
-        document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-            toggle.addEventListener('click', function(e) {
-                if (window.innerWidth <= 992) {
-                    e.preventDefault();
-                    this.classList.toggle('active');
-                    const dropdown = this.nextElementSibling;
-                    dropdown.classList.toggle('show');
-                }
-            });
-        });
-        
-        // Handle nested dropdowns on mobile
-        document.querySelectorAll('.nested-dropdown').forEach(nestedItem => {
-            const nestedToggle = nestedItem.querySelector('.dropdown-item');
-            nestedToggle.addEventListener('click', function(e) {
-                if (window.innerWidth <= 992) {
-                    e.preventDefault();
-                    const nestedMenu = this.nextElementSibling;
-                    nestedMenu.classList.toggle('show');
-                }
-            });
-        });
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (window.innerWidth <= 992) {
-                if (!e.target.closest('.nav-links') && !e.target.closest('.hamburger')) {
-                    document.querySelector('.nav-links').classList.remove('active');
-                }
-            }
-        });
-        
-        // Resize handling - reset mobile menu state when resizing to desktop
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 992) {
-                document.querySelectorAll('.dropdown-menu, .nested-dropdown-menu').forEach(menu => {
-                    menu.classList.remove('show');
-                });
-                document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-                    toggle.classList.remove('active');
-                });
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
                 document.querySelector('.nav-links').classList.remove('active');
-            }
+            });
         });
     </script>
 </body>
