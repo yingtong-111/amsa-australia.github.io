@@ -84,6 +84,57 @@
             color: #0077b6;
             font-weight: 700;
         }
+        .dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 240px;
+    top: 100%;
+    left: 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content li {
+    position: relative;
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    display: block;
+    color: #333;
+    text-decoration: none;
+    background-color: white;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #f2f2f2;
+}
+
+.sub-dropdown-content {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: white;
+    min-width: 280px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+.sub-dropdown:hover .sub-dropdown-content {
+    display: block;
+}
+
         
         .hamburger {
             display: none;
@@ -381,12 +432,29 @@
         
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html" class="active">About</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="international.html">International</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="join.html">Join Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="amsa-australia-about.html" class="active">About Us</a></li>
+
+            <li class="dropdown">
+                <a href="#">Events ▾</a>
+                <ul class="dropdown-content">
+                    <li class="sub-dropdown">
+                        <a href="#">Upcoming Events ▸</a>
+                        <ul class="sub-dropdown-content">
+                            <li><a href="#">AMSEP Australia x Japan x Indonesia</a></li>
+                            <li><a href="#">AMSEP Australia x Taiwan</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-dropdown">
+                        <a href="#">Past Events ▸</a>
+                        <ul class="sub-dropdown-content">
+                            <li><a href="#">2024 AMSEP Australia x Singapore</a></li>
+                            <li><a href="#">2024 Australia x Singapore x Hong Kong AMSEP</a></li>
+                            <li><a href="#">2023 Australia x Thailand AMSEP</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="Contact.html">Contact Us</a></li>
         </ul>
         
         <div class="hamburger">☰</div>
@@ -411,7 +479,7 @@
             </div>
             
             <div class="about-image">
-                <img src="/api/placeholder/600/400" alt="AMSA Australia Members">
+                <img src="Image/allmembers.jpg" alt="AMSA Australia Members">
             </div>
         </div>
     </section>
